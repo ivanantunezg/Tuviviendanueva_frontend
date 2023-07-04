@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVN - Encontra tu vivienda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/vivienda.css') }}">
+    {% include 'menu.html' %}
+</head>
+
+<body>
+
+    <div class="container-home">
+
+
+        <div class="content">
+            <div class="">
+                
+                <p class="fw-bold">Av. Vasco de Quiroga 3800, Santa Fe, Alvaro Obreg&oacute;n, Ciudad de M&eacute;xico
+                </p>
+                <div class="div-imagenes">
+                    <div class="div-img-principal shadow-sm" data-imgSrc="../img/living-casa.jpg">
+                        <div class="anio-entrega">
+                            Entega 2023
+                        </div>
+                    </div>
+                    <div class="div-img-secundarias shadow-sm" data-imgSrcSecundaria="../img/cocina-casa.jpg">
+                        <a class="btn-ver-imagenes">Ver mas imagenes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="div-info-contacto">
+                <div class="div-info">
+                    <div class="caracteristicas">
+                        <div class="area">
+                            <p>&Aacute;rea</p>
+                            
+                            <p class="fw-bold">{{ vivienda.caracteristicas.area }} m<sup>2</sup></p>
+                        </div>
+                        <div class="recamaras">
+                            <p>Rec&aacute;maras</p>
+                            <p class="fw-bold">{{ vivienda.caracteristicas.habitaciones }}</p>
+                        </div>
+                        <div class="banios">
+                            <p>Ba&ntilde;os</p>
+                            <p class="fw-bold">{{ vivienda.caracteristicas.banios }}</p>
+                        </div>
+                        <div class="estacionamientos">
+                            <p>Estacionamientos</p>
+                            <p class="fw-bold">{{ vivienda.caracteristicas.estacionamientos }}</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p class="ciudad">{{ vivienda.ubicacion.ciudad}}</p>
+                        <p class="direccion">{{ vivienda.ubicacion.direccion}}</p>
+                        <p class="descripcion mt-4">{{ vivienda.descripcion}}</p>
+                    </div>
+                    <div class="amenidades mt-4 mb-4">
+                        <p class="fw-bold">Incluye</p>
+                        <a>Roof Garden</a>
+                        <a>Asador</a>
+                        <a>Spa</a>
+                        <a>Escuelas cercanas</a>
+                    </div>
+                    <div class="unidades mt-4 mb-4">
+                        <p class="fw-bold">Unidades</p>
+                        <span class="span-unidades">2 Unidades</span>
+                    </div>
+                    <p>En venta / 6 Unidades</p>
+                    <div class="seleccionar">
+                        <div class="item-seleccionar">
+                            <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
+                            <div class="precio">
+                                <p>Departamento</p>
+                                <p class="fw-bold">$2.65 millones</p>
+                            </div>
+                            <div class="area">
+                                <p>&Aacute;rea</p>
+                                <p class="fw-bold">149.0 m<sup>2</sup></p>
+                            </div>
+                            <div class="recamaras">
+                                1 rec&aacute;maras
+                                <i class="fa-solid fa-bed ml-2"></i>
+                            </div>
+                            <div class="banios">
+                                1 ba&ntilde;o
+                                <i class="fa-solid fa-toilet ml-2 "></i>
+                            </div>
+                            <div class="estacionamiento">
+                                1 estacionamiento
+                                <i class="fas fa-car-alt ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="item-seleccionar">
+                            <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
+                            <div class="precio">
+                                <p>Departamento</p>
+                                <p class="fw-bold">$2.65 millones</p>
+                            </div>
+                            <div class="area">
+                                <p>&Aacute;rea</p>
+                                <p class="fw-bold">149.0 m<sup>2</sup></p>
+                            </div>
+                            <div class="recamaras">
+                                1 rec&aacute;maras
+                                <i class="fa-solid fa-bed ml-2"></i>
+                            </div>
+                            <div class="banios">
+                                1 ba&ntilde;o
+                                <i class="fa-solid fa-toilet ml-2 "></i>
+                            </div>
+                            <div class="estacionamiento">
+                                1 estacionamiento
+                                <i class="fas fa-car-alt ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="item-seleccionar active">
+                            <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
+                            <div class="precio">
+                                <p>Departamento</p>
+                                <p class="fw-bold">$2.65 millones</p>
+                            </div>
+                            <div class="area">
+                                <p>&Aacute;rea</p>
+                                <p class="fw-bold">149.0 m<sup>2</sup></p>
+                            </div>
+                            <div class="recamaras">
+                                1 rec&aacute;maras
+                                <i class="fa-solid fa-bed ml-2"></i>
+                            </div>
+                            <div class="banios">
+                                1 ba&ntilde;o
+                                <i class="fa-solid fa-toilet ml-2 "></i>
+                            </div>
+                            <div class="estacionamiento">
+                                1 estacionamiento
+                                <i class="fas fa-car-alt ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4 ms-5 conoce-alrededores">
+
+                        <span class="fw-bold">Conoce los alrededores del inmueble</span>
+                        <p>Av. Vasco de Quiroga 3800, Santa Fe, Alvaro Obreg&oacute;n, Ciudad de M&eacute;xico</p>
+                    </div>
+                    <div class="maps">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.171280749591!2d-99.27337779999999!3d19.3617349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d200ce851233e3%3A0x17f6fa581879d005!2sVasco%20de%20Quiroga%203800%2C%20Lomas%20de%20Santa%20Fe%2C%20Contadero%2C%20Cuajimalpa%20de%20Morelos%2C%2005100%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sar!4v1688391999396!5m2!1ses-419!2sar"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="div-contacto">
+                    <div class="div-precio">
+                        <span>Precio</span>
+                        <p class="fw-bold">De $2.56 a $5.2 millones</p>
+                        <a class="btn-agendar-cita">
+                            Agenda una cita virtual
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="div-contactar">
+                        <div class="div-inputs mb-4">
+                            <label>Nombre</label>
+                            <input type="text" name="txtNombre" id="txtNombre" placeholder="INGRESA NOMBRE *">
+                            <label>Correo electr&oacute;nico</label>
+                            <input type="email" name="txtCorreo" id="txtCorreo"
+                                placeholder="INGRESA CORREO ELECTRONICO *">
+                            <label>Tel&eacute;fono</label>
+                            <input type="tel" name="txtTelefono" id="txtTelefono" placeholder="INGRESA TELEFONO *">
+                        </div>
+                        <div class="div-checks">
+
+
+                            <div class="form-check mt-3 mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="chkCredito">
+                                <label class="form-check-label" for="chkCredito">
+                                    Necesito un cr&eacute;dito hipotecario
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="chkAceptarTyC">
+                                <label class="form-check-label" for="chkAceptarTyC">
+                                    Acepto t&eacute;rminos y condiciones generales y la pol&iacute;tica de tratamiento
+                                    de
+                                    datos
+                                </label>
+                            </div>
+                        </div>
+                        <div class="div-btns-contactar">
+                            <a href="" class="btn-compartir">Compartir</a>
+                            <a href="" class="whatsapp"> <i class="fab fa-whatsapp fa-xs"></i></a>
+                            <a href="" class="btn-contactar">Contactar</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/info-vivienda.js') }}"></script>
+</body>
+
+</html>

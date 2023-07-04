@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TVN - Encuentra tu vivienda</title>
+
+
+</head>
+
+<body>
+    {% include 'menu.html' %}
+    <!-- <header class="menu-header">
+        <a href="#" class="logo"><img src="img/logo.JPG" alt="LOGO"></a>
+        <ul class="navbar">
+            <li><a href="#">Calcula</a></li>
+            <li><a href="#" class="active">Hipoteca</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Hasta ahora</a></li>
+
+        </ul>
+        <div class="main">
+            <a href="">Publicar gratis</a>
+            <a href="" class="login">Iniciar sesión</a>
+
+        </div>
+    </header> -->
+
+    <div class="container-home">
+
+
+        <div class="content">
+            <div class="content-viviendas">
+                <div class="buscador-viviendas">
+                    <p>¿D&oacute;nde quieres vivir?</p>
+                    <input type="text" name="txtCiudadBuscador" id="txtCiudadBuscador" class="buscador-input">
+                    <br>
+                    <ul>
+                        <li><a>Ciudad de M&eacute;xico</a></li>
+                    </ul>
+                    <br>
+                    <p>Comprar</p>
+                    <div class="buscador-tipo-casa">
+                        <div class="item-tipo-casa">
+                            <input type="checkbox" class="btn-check" id="chk-casa" autocomplete="off">
+                            <label class=" btn btn-outline-primary" for="chk-casa">Casa</label>
+                        </div>
+                        <div class="item-tipo-casa">
+                            <input type="checkbox" class="btn-check" id="chk-departamentos" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="chk-departamentos">Departamento</label>
+                        </div>
+                        <div class="item-tipo-casa">
+                            <input type="checkbox" class="btn-check" id="check-terreno" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="check-terreno">Terreno</label>
+                        </div>
+                    </div>
+                    <br>
+                    <p>precio mxn$</p>
+                    <div class="rango-precio">
+                        <div class="slider">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="range-input">
+                            <input type="range" class="range-min" min="0" max="500000" value="120000" step="10000">
+                            <input type="range" class="range-max" min="0" max="10000000" value="7500000" step="10000">
+                        </div>
+                        <div class="price-label">
+                            <label class="label-min">Min $120000</label>
+                            <label class="label-max">Max $1000000</label>
+                        </div>
+                    </div>
+                    <p>año de entrega</p>
+                    <div class="buscador-anio-entrega">
+                        <div class="anio-entrega">
+                            <input type="checkbox" class="btn-check" id="chk-2023" autocomplete="off">
+                            <label class=" btn btn-outline-secondary" for="chk-2023">2023</label>
+                        </div>
+                        <div class="anio-entrega">
+                            <input type="checkbox" class="btn-check" id="chk-2024" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="chk-2024">2024</label>
+                        </div>
+                        <div class="anio-entrega">
+                            <input type="checkbox" class="btn-check" id="check-2025" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="check-2025">2025</label>
+                        </div>
+                        <div class="anio-entrega">
+                            <input type="checkbox" class="btn-check" id="check-2026" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="check-2026">2026</label>
+                        </div>
+                    </div>
+                    <p>carater&iacute;sticas</p>
+                    <div class="caracteristicas">
+
+                    </div>
+                </div>
+                <div class="container-viviendas">
+                    {% if viviendas %}
+                    
+                    {% for vivienda in viviendas %}
+                    <div class="vivienda shadow">
+                        <div class="img-vivienda" data-imgSrc="../img/living-casa2.JPG">
+                            <a class="casa-nueva">Casa Nueva</a>
+                        </div>
+                        <div class="info-vivienda">
+                            <p class="ciudad-vivienda">{{vivienda.ubicacion.ciudad}}</p>
+                            <p class="direccion-vivienda">{{vivienda.ubicacion.direccion}}</p>
+                            <p class="descripcion-vivienda">{{vivienda.descripcion}}</p>
+                            <p class="precio-vivienda">
+                                $ {{vivienda.precio}}
+                            </p>
+                            <div class="amenidades-vivienda">
+
+                            </div>
+                            <hr>
+                            <div class="contacto">
+                                <a class="whatsapp">
+                                    <i class="fab fa-whatsapp fa-xs"></i>
+                                </a>
+                                <a href="Vivienda?id={{vivienda._id}}" class="btn-contactar">
+                                    Contactar
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>{{ error }}</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/vivienda.js') }}"></script>
+</body>
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Tu vivienda nueva. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</html>
