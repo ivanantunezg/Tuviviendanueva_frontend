@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
 from viviendas import viviendas
-app = Flask(__name__,static_folder='templates')
 
-#Rutas de la app
-@app.route('/')
+app = Flask(__name__, static_folder='templates')
+
+# Definir variable estática para la URL
+URL_API = "https://tuviviendanuevabackend-0cf776933a1f.herokuapp.com/api/viviendas"
+
+# Rutas de la app
+@app.route('/AltaViviendas')
 def index():
     return render_template('index.html')
 
@@ -13,8 +17,7 @@ def home():
 
 @app.route('/Viviendas')
 def pageViviendas():
-    url = "http://127.0.0.1:4000/api/viviendas"
-    viviendasAPI = viviendas(url)
+    viviendasAPI = viviendas(URL_API)
     data = viviendasAPI.getViviendas()
 
     if data is not None:
@@ -26,12 +29,10 @@ def pageViviendas():
 @app.route('/Vivienda')
 def vivienda():
     id = request.args.get('id')
-    url = "http://127.0.0.1:4000/api/viviendas"
-    viviendasAPI = viviendas(url)
+    viviendasAPI = viviendas(URL_API)
     data = viviendasAPI.getViviendaByID(id)
 
     return render_template('vivienda.html', vivienda=data)
 
-
 if __name__ == '__main__':
-    app.run(debug=True,port=4010)
+    app.run(debug=True, port=4010)
