@@ -27,7 +27,7 @@
 
         </div>
     </header> -->
-
+<div class="container-general">
     <div class="container-home">
 
 
@@ -137,11 +137,13 @@
     </div>
     <script src="{{ url_for('static', filename='scripts/slider.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/vivienda.js') }}"></script>
+</div>
 </body>
-<footer>
-    <div class="container">
-        <p>&copy; 2023 Tu vivienda nueva. Todos los derechos reservados.</p>
-    </div>
-</footer>
 
+{% include 'footer.html' %}
+
+<script>
+    
+
+</script>
 </html>

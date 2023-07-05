@@ -6,16 +6,33 @@
 }
 
 
-body{
-    min-height: 100vh;
-}
-
 footer{
     background-color: #282424;
-    height: 15vh;
-    position: absolute;
+    height: auto;
+    position: relative;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+    font-size: 1.2vh;
+    line-height: 2vh;
+}
+
+.container-footer{
+    width: 70vw;
+    color: #fff;
+    text-align: center;
+}
+
+.text-footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 3vh 0vh 2vh 0vh;
+}
+
+.text-footer div{
+    text-align: center;
 }
 
 header{

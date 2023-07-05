@@ -73,7 +73,7 @@
                             <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
                             <div class="precio">
                                 <p>Departamento</p>
-                                <p class="fw-bold">$2.65 millones</p>
+                                <p class="fw-bold">MXN$ {{ vivienda.precio }}</p>
                             </div>
                             <div class="area">
                                 <p>&Aacute;rea</p>
@@ -96,7 +96,7 @@
                             <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
                             <div class="precio">
                                 <p>Departamento</p>
-                                <p class="fw-bold">$2.65 millones</p>
+                                <p class="fw-bold">MXN$ {{ vivienda.precio }}</p>
                             </div>
                             <div class="area">
                                 <p>&Aacute;rea</p>
@@ -119,7 +119,7 @@
                             <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
                             <div class="precio">
                                 <p>Departamento</p>
-                                <p class="fw-bold">$2.65 millones</p>
+                                <p class="fw-bold">MXN$ {{ vivienda.precio }}</p>
                             </div>
                             <div class="area">
                                 <p>&Aacute;rea</p>
@@ -154,7 +154,7 @@
                 <div class="div-contacto">
                     <div class="div-precio">
                         <span>Precio</span>
-                        <p class="fw-bold">De $2.56 a $5.2 millones</p>
+                        <p class="fw-bold">MXN$ {{ vivienda.precio }}</p>
                         <a class="btn-agendar-cita">
                             Agenda una cita virtual
                         </a>
@@ -202,5 +202,5 @@
     </div>
     <script src="{{ url_for('static', filename='scripts/info-vivienda.js') }}"></script>
 </body>
-
+{% include 'footer.html' %}
 </html>
