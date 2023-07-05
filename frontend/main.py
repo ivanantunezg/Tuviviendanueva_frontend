@@ -7,8 +7,12 @@ app = Flask(__name__, static_folder='templates')
 URL_API = "https://tuviviendanuevabackend-0cf776933a1f.herokuapp.com/api/viviendas"
 
 # Rutas de la app
-@app.route('/AltaViviendas')
+@app.route('/')
 def index():
+    return render_template('home.html')
+
+@app.route('/AltaViviendas')
+def alta():
     return render_template('index.html')
 
 @app.route('/Home')
