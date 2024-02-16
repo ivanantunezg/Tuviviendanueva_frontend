@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVN - Añadir vivienda</title>
+    <script src="{{ url_for('static', filename='scripts/altavivienda.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/altavivienda.css') }}">
+</head>
+{% include 'menu.html' %}
+
+<body>
+    <div class="container-alta-vivienda">
+        <div class="content-alta-vivienda">
+            <form id="form1" method="post" action="/AltaVivienda">
+                {% if viviendas %}
+                <div>
+                    <div class="shadow p-5 text-center">
+                        <img src="{{ url_for('static', filename='img/success.png') }}" width="80px" class="mt-2 mb-2"><br>
+                        <h3>Su vivienda ha sido publicada con éxito.</h3><h5>Dir&iacute;jase <a href="/MisViviendas">aqu&iacute;</a> para ver todas sus viviendas</h5>
+                    </div>
+                </div>
+                {% else %}
+                <div class="divAltaVivienda">
+                    <section id="secTipoVivienda">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="p-2">Seleccione el tipo de vivienda que desee publicar</h4>
+                                    <hr>
+                                    <div class="div-ul-seleccionar">
+                                        <ul class="ul-ul-seleccionar">
+                                            <li class="li-ul-seleccionar" data-value="casa"
+                                                onclick="guardarTipoVivienda(this)"><label>Casa</label>
+                                                <i class="fas fa-angle-right"></i>
+                                            </li>
+                                            <hr>
+                                            <li class="li-ul-seleccionar" data-value="departamento"
+                                                onclick="guardarTipoVivienda(this)"><label>Departamento</label>
+                                                <i class="fas fa-angle-right"></i>
+                                            </li>
+                                            <hr>
+                                            <li class="li-ul-seleccionar" data-value="terreno"
+                                                onclick="guardarTipoVivienda(this)"><label>Terreno</label>
+                                                <i class="fas fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <input type="hidden" name="tipoVivienda" id="tipoVivienda">
+                            </div>
+                        </div>
+                    </section>
+                    <section id="secVenderAlquilar" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="p-2">¿Desea vender o alquilar?</h5>
+                                <hr>
+                                <div class="div-ul-seleccionar">
+                                    <ul class="ul-ul-seleccionar">
+                                        <li class="li-ul-seleccionar" data-value="vender"
+                                            onclick="guardarVenderAlquilar(this)">
+                                            <label>Vender</label>
+                                            <i class="fas fa-angle-right"></i>
+                                        </li>
+                                        <hr>
+                                        <li class="li-ul-seleccionar" data-value="alquilar"
+                                            onclick="guardarVenderAlquilar(this)">
+                                            <label>Alquilar</label>
+                                            <i class="fas fa-angle-right"></i>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <input type="hidden" id="venderAlquilar" name="venderAlquilar">
+                            </div>
+                        </div>
+                    </section>
+                    <section id="secDireccion" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="p-2">Ingrese la dirección del inmueble</h5>
+                                <hr>
+                                <div class="div-direccion m-3">
+                                    <div>
+                                        <label for="direccion">Dirección:</label>
+                                        <input class="form-control" type="text" name="direccion" id="direccion">
+                                    </div>
+                                    <div>
+                                        <label for="linkUbicacion">Inserte el link de Google Maps aquí:</label>
+                                        <input class="form-control" type="text" name="linkUbicacion" id="linkUbicacion">
+                                    </div>
+                                    <div>
+                                        <label for="ciudad">Ciudad:</label>
+                                        <input class="form-control" type="text" name="ciudad" id="ciudad">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-end">
+                                    <a class="btn btn-secondary">Atrás</a>
+                                    <a id="btnContinuarDireccion" onclick="continuarDireccion()"
+                                        class="btn btn-primary">Continuar</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </section>
+                    <section id="secCaracteristicas" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="p-2">Ingrese los siguientes datos:</h5>
+                                <hr>
+                                <div class="div-caracteristicas row m-4">
+                                    <div class="div-area col-sm-12 col-lg-3">
+                                        <label for="area">Área (en M<sup>2</sup>):</label>
+                                        <input class="form-control" type="number" name="area" id="area">
+                                    </div>
+                                    <div class="banios col-sm-12 col-lg-3">
+                                        <label for="banios">Baños:</label>
+                                        <input class="form-control" type="number" name="banios"
+                                            placeholder="Ingrese el número de baños...">
+                                    </div>
+                                    <div class="habitaciones col-sm-12 col-lg-3">
+                                        <label for="habitaciones">Habitaciones:</label>
+                                        <input class="form-control" type="number" name="habitaciones"
+                                            placeholder="Ingrese el número de habitaciones...">
+                                    </div>
+                                    <div class="estacionamientos col-sm-12 col-lg-3">
+                                        <label for="estacionamientos">Estacionamientos:</label>
+                                        <input class="form-control" type="number" name="estacionamientos"
+                                            placeholder="Ingrese el número de estacionamientos...">
+                                    </div>
+                                </div>
+
+                                <div class="div-precio m-3">
+                                    <label for="precio">¿Cuánto dinero desea percibir de la venta/alquiler? (en
+                                        $MXN)</label>
+                                    <input class="form-control w-50" placeholder="Precio" type="number" name="precio"
+                                        id="">
+                                </div>
+                                <hr>
+                                <div class="text-end">
+                                    <a class="btn btn-secondary">Atrás</a>
+                                    <a id="btn-continuar-caracteristicas" onclick="continuarCaracteristicas()"
+                                        class="btn btn-primary">Continuar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="secNombre" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="p-2">Ingrese un nombre y una descripción de la vivienda: </h5>
+                                <hr>
+                                <div class="m-3">
+                                    <label for="nombre">Nombre:</label>
+                                    <input class="form-control" type="text" name="nombre"
+                                        placeholder="Ingrese el nombre...">
+                                    <label for="nombre">Descripción:</label>
+                                    <textarea class="form-control" name="descripcion"
+                                        placeholder="Ingrese la descripción..."></textarea>
+
+                                </div>
+                                <hr>
+                                <div class="text-end">
+                                    <input type="submit" class="btn btn-primary" value="Publicar">
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {% endif%}
+            </form>
+        </div>
+    </div>
+
+
+</body>
+{% include 'footer.html' %}
+
+</html>

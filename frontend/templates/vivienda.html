@@ -67,9 +67,9 @@
                         <p class="fw-bold">Unidades</p>
                         <span class="span-unidades">2 Unidades</span>
                     </div>
-                    <p>En venta / 6 Unidades</p>
+                    <p>En venta / 1 Unidades</p>
                     <div class="seleccionar">
-                        <div class="item-seleccionar">
+                        <div class="item-seleccionar active">
                             <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
                             <div class="precio">
                                 <p>Departamento</p>
@@ -77,22 +77,22 @@
                             </div>
                             <div class="area">
                                 <p>&Aacute;rea</p>
-                                <p class="fw-bold">149.0 m<sup>2</sup></p>
+                                <p class="fw-bold">{{ vivienda.caracteristicas.area }} m<sup>2</sup></p>
                             </div>
                             <div class="recamaras">
-                                1 rec&aacute;maras
+                                {{ vivienda.caracteristicas.habitaciones }} rec&aacute;maras
                                 <i class="fa-solid fa-bed ml-2"></i>
                             </div>
                             <div class="banios">
-                                1 ba&ntilde;o
+                                {{ vivienda.caracteristicas.banios }} ba&ntilde;o
                                 <i class="fa-solid fa-toilet ml-2 "></i>
                             </div>
                             <div class="estacionamiento">
-                                1 estacionamiento
+                                {{ vivienda.caracteristicas.estacionamientos }} estacionamiento
                                 <i class="fas fa-car-alt ml-1"></i>
                             </div>
                         </div>
-                        <div class="item-seleccionar">
+                        <!-- <div class="item-seleccionar">
                             <img src="{{ url_for('static', filename='img/cocina-casa.jpg') }}" alt="">
                             <div class="precio">
                                 <p>Departamento</p>
@@ -137,7 +137,7 @@
                                 1 estacionamiento
                                 <i class="fas fa-car-alt ml-1"></i>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="mt-4 mb-4 ms-5 conoce-alrededores">
 

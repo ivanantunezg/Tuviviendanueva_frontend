@@ -1,0 +1,49 @@
+.container-alta-vivienda{
+    display: flex;
+    justify-content: center;
+
+}
+
+.content-alta-vivienda{
+    width: 60vw;
+    padding: 10vh 0 10vh 0 ;
+}
+
+
+.div-ul-seleccionar{
+    padding: 0vh 3vh 0vh 3vh;
+}
+
+.div-ul-seleccionar ul{
+    margin-top:2vh;
+    list-style-type: none;
+    font-size: 1.8vh;
+    font-weight: 500;
+}
+
+.div-ul-seleccionar hr{    
+    margin: 0;
+}
+
+.div-ul-seleccionar li{
+    padding: 1.5vh 2vh 1.5vh 2vh;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.div-ul-seleccionar li i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-ul-seleccionar li:hover{
+    background-color: #dadada;
+    color: #689cfc;;
+    font-weight: 600;
+}
+
+.div-direccion{
+    width: 80%;
+}

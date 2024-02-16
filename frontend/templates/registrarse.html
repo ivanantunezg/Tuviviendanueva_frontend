@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/viviendas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/registrarse.css') }}">
+    <script src="{{ url_for('static', filename='scripts/footer.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>TVN - Registrate</title>
+</head>
+
+<body>
+    <div class="container-registrarse">
+        <div class="content-registrarse">
+
+            <div class="card card-registrarse">
+                <div class="card-body">
+                    <div class="img-logo">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}">
+                    </div>
+                    <h4 class="text-center">Ingrese sus datos</h4>
+                    <form action="{{ url_for('usuariosviews.registrarse') }}" method="post">
+                        <div class="div-input">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" required class="form-control">
+                        </div>
+
+                        <div class="div-input">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" required class="form-control">
+                        </div>
+
+                        <div class="div-input">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" name="apellido" required class="form-control">
+                        </div>
+
+                        <div class="div-input">
+                            <label for="numeroDocumento">Número de documento:</label>
+                            <input type="text" name="numeroDocumento" required class="form-control">
+                        </div>
+
+                        <div class="div-input">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" name="telefono" required class="form-control">
+                        </div>
+
+                        <div class="div-input">
+                            <label for="tipoUsuario">Tipo de usuario:</label>
+                            <select name="tipoUsuario" required class="form-control">
+                                <option value="Particular">Normal</option>
+                                <option value="Inmobiliaria">Inmobiliaria</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="div-input">
+                            <label for="contrasenia">Contraseña:</label>
+                            <input type="password" name="contrasenia" required class="form-control">
+                        </div>
+                        <div class="div-btn">
+                            <input type="submit" class="btn-registrarse" value="Registrate">
+                        </div>
+                        <hr class="mt-4 mb-4">
+                        <div class="registrarse text-center">
+                            <label class="fw-bold">¿Ya tienes cuenta?</label>
+                            <br>
+                            <a href="login">Inicia sesi&oacute;n aqu&iacute;</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+
+
+.container-misviviendas{
+    width: 92%;
+    padding: 0 2vh 2vh 2vh;
+    display: block!important;
+}
+
+.content-misviviendas{
+    display: flex;
+    margin-top:2.5vh;
+}
+
+.mivivienda{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    max-height: 40vh;
+    margin-bottom: 4vh;
+}
+
+.vivienda hr{
+    background-color: #bdbdbd;
+    color: #bdbdbd;
+    height: 2px;
+}
+
+.img-vivienda {
+    background: var(--imgSrc) no-repeat;
+    background-size: cover;
+    padding:1vh 3vh 0 0;
+    /* Otros estilos de fondo que desees aplicar */
+}
+
+.casa-nueva{
+    padding: 1vh 2vh 1vh 2vh;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 1.3vh;
+    text-decoration: none;
+    font-weight: 600;
+    margin:1.5vh 0 0 1.5vh;
+
+}
+
+.container-misviviendas{
+    display: flex;
+}
+
+.info-vivienda{
+    padding: 2vh 3vh 2vh 3vh;
+    background-color:#f8f4f4;
+}
+
+.ciudad-vivienda{
+    font-size: 1.6vh;
+}
+.direccion-vivienda{
+    font-size: 2.8vh;
+    font-weight: 600;
+    text-transform: uppercase;
+    max-width: 80%;
+}
+
+.descripcion-vivienda{
+    font-size: 1.6vh;
+    max-width: 80%;
+}
+
+.precio-vivienda{
+    font-size:1.8vh;
+    font-weight: bold;
+}

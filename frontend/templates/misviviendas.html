@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVN - Mis viviendas</title>
+</head>
+
+<body>
+    {% include 'menu.html' %}
+    <div class="container-home">
+        <div class="content">
+            <div class="content-misviviendas">
+                <div class="container-misviviendas">
+                    {% if viviendas %}
+
+                    {% for vivienda in viviendas %}
+                    <div class="mivivienda shadow">
+                        <div class="info-vivienda">
+                            <p class="ciudad-vivienda">{{vivienda.ubicacion.ciudad}}</p>
+                            <p class="direccion-vivienda">{{vivienda.ubicacion.direccion}}</p>
+                            <p class="descripcion-vivienda">{{vivienda.descripcion}}</p>
+                            <p class="precio-vivienda">
+                                $ {{vivienda.precio}}
+                            </p>
+                            <div class="amenidades-vivienda">
+                            </div>
+                                
+                            <hr>
+                            <div class="acciones-vivienda text-end">
+                                <a class="ms-3"><i class="fas fa-edit fa-lg"></i></a>
+                                <a class="ms-3"><i class="fas fa-trash-alt fa-lg"></i></a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                        {% if error %}
+                            <div class="shadow p-5">
+                                <p>Lo sentimos, hubo un error al recuperar sus viviendas</p>
+                            </div>
+                            
+                        {%else%}
+                            <div class="shadow p-5">
+                                <h3>No tiene viviendas en este momento. Dirijase <a href="/AltaVivienda">aqu&iacute;</a> para añadir su primer vivienda</h3>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% include 'footer.html' %}
+
+</html>

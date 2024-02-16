@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <script src="{{ url_for('static', filename='scripts/viviendas.js') }}"></script>
     {% include 'menu.html' %}
     <!-- <header class="menu-header">
         <a href="#" class="logo"><img src="img/logo.JPG" alt="LOGO"></a>
@@ -27,123 +28,224 @@
 
         </div>
     </header> -->
-<div class="container-general">
-    <div class="container-home">
+    <div class="container-general">
+        <div class="container-home">
 
 
-        <div class="content">
-            <div class="content-viviendas">
-                <div class="buscador-viviendas">
-                    <p>¿D&oacute;nde quieres vivir?</p>
-                    <input type="text" name="txtCiudadBuscador" id="txtCiudadBuscador" class="buscador-input">
-                    <br>
-                    <ul>
-                        <li><a>Ciudad de M&eacute;xico</a></li>
-                    </ul>
-                    <br>
-                    <p>Comprar</p>
-                    <div class="buscador-tipo-casa">
-                        <div class="item-tipo-casa">
-                            <input type="checkbox" class="btn-check" id="chk-casa" autocomplete="off">
-                            <label class=" btn btn-outline-primary" for="chk-casa">Casa</label>
-                        </div>
-                        <div class="item-tipo-casa">
-                            <input type="checkbox" class="btn-check" id="chk-departamentos" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="chk-departamentos">Departamento</label>
-                        </div>
-                        <div class="item-tipo-casa">
-                            <input type="checkbox" class="btn-check" id="check-terreno" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="check-terreno">Terreno</label>
-                        </div>
-                    </div>
-                    <br>
-                    <p>precio mxn$</p>
-                    <div class="rango-precio">
-                        <div class="slider">
-                            <div class="progress"></div>
-                        </div>
-                        <div class="range-input">
-                            <input type="range" class="range-min" min="0" max="500000" value="120000" step="10000">
-                            <input type="range" class="range-max" min="0" max="10000000" value="7500000" step="10000">
-                        </div>
-                        <div class="price-label">
-                            <label class="label-min">Min $120000</label>
-                            <label class="label-max">Max $1000000</label>
-                        </div>
-                    </div>
-                    <p>año de entrega</p>
-                    <div class="buscador-anio-entrega">
-                        <div class="anio-entrega">
-                            <input type="checkbox" class="btn-check" id="chk-2023" autocomplete="off">
-                            <label class=" btn btn-outline-secondary" for="chk-2023">2023</label>
-                        </div>
-                        <div class="anio-entrega">
-                            <input type="checkbox" class="btn-check" id="chk-2024" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="chk-2024">2024</label>
-                        </div>
-                        <div class="anio-entrega">
-                            <input type="checkbox" class="btn-check" id="check-2025" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="check-2025">2025</label>
-                        </div>
-                        <div class="anio-entrega">
-                            <input type="checkbox" class="btn-check" id="check-2026" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="check-2026">2026</label>
-                        </div>
-                    </div>
-                    <p>carater&iacute;sticas</p>
-                    <div class="caracteristicas">
+            <div class="content">
+                <div class="content-viviendas">
+                    <div class="buscador-viviendas">
+                        <form method="get" action="/Viviendas">
+                            <p>¿D&oacute;nde quieres vivir?</p>
+                            <input type="text" name="ciudad" id="ciudad" class="buscador-input" placeholder="Ingrese ciudad, delegaci&oacute;n o colonia">
+                            <!-- <br>
+                            <ul>
+                                <li><a>Ciudad de M&eacute;xico</a></li>
+                            </ul> -->
+                            <br>
+                            <br>
+                            <p>Comprar</p>
+                            <div class="buscador-tipo-casa">
+                                <div class="item-tipo-casa">
+                                    <input type="checkbox" class="btn-check" id="chk-casa" autocomplete="off">
+                                    <label class=" btn btn-outline-primary lblTipoCasa" data-name="chk-casa" for="chk-casa">Casa</label>
+                                </div>
+                                <div class="item-tipo-casa">
+                                    <input type="checkbox" class="btn-check" id="chk-departamentos" autocomplete="off">
+                                    <label class="btn btn-outline-primary lblTipoCasa" data-name="chk-departamentos" for="chk-departamentos">Departamento</label>
+                                </div>
+                                <div class="item-tipo-casa">
+                                    <input type="checkbox" class="btn-check" id="chk-terreno" autocomplete="off">
+                                    <label class="btn btn-outline-primary lblTipoCasa" data-name="chk-terreno" for="check-terreno">Terreno</label>
+                                </div>
+                                <input type="hidden" name="tipo" value="">
+                            </div>
+                            <br>
+                            <p>precio mxn$</p>
+                            <div class="rango-precio">
+                                <div class="slider">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="range-input">
+                                    <input type="range" name="precioMin" class="range-min" min="150000" max="5000000" value="1400000"
+                                        step="50000">
+                                    <input type="range" name="precioMax" class="range-max" min="0" max="13000000" value="10000000"
+                                        step="50000">
+                                </div>
+                                <div class="price-label">
+                                    <label class="label-min">Min $250000</label>
+                                    <label class="label-max">Max $10000000</label>
+                                </div>
+                            </div>
+                            <p>año de entrega</p>
+                            <div class="buscador-anio-entrega">
+                                <div class="anio-entrega">
+                                    <input type="checkbox" class="btn-check" name="chk-2023" id="chk-2023" autocomplete="off">
+                                    <label class=" btn btn-outline-secondary lblAnio" data-name="chk-2023" for="chk-2023">2023</label>
+                                </div>
+                                <div class="anio-entrega">
+                                    <input type="checkbox" class="btn-check" name="chk-2024" id="chk-2024" autocomplete="off">
+                                    <label class="btn btn-outline-secondary lblAnio" data-name="chk-2024"  for="chk-2024">2024</label>
+                                </div>
+                                <div class="anio-entrega">
+                                    <input type="checkbox" class="btn-check" name="chk-2025" id="chk-2025" autocomplete="off">
+                                    <label class="btn btn-outline-secondary lblAnio" data-name="chk-2025"  for="chk-2025">2025</label>
+                                </div>
+                                <div class="anio-entrega">
+                                    <input type="checkbox" class="btn-check"  name="chk-2026" id="chk-2026" autocomplete="off">
+                                    <label class="btn btn-outline-secondary lblAnio" data-name="chk-2026"  for="chk-2026">2026</label>
+                                </div>
+                            </div>
+                            <br>
+                            <p>carater&iacute;sticas</p>
+                            <div class="caracteristicas">
+                                <div class="carateristicas-item">
+                                    <label for="cantidadRecamaras">Recamaras</label>
+                                    <div class="d-flex justify-content-end">
+                                        <input id="cantidadRecamaras" name="cantidadRecamaras" placeholder="0" type="number" max="30"
+                                            min="0">
+                                    </div>
 
-                    </div>
-                </div>
-                <div class="container-viviendas">
-                    {% if viviendas %}
-                    
-                    {% for vivienda in viviendas %}
-                    <div class="vivienda shadow">
-                        <div class="img-vivienda" data-imgSrc="../img/living-casa2.JPG">
-                            <a class="casa-nueva">Casa Nueva</a>
-                        </div>
-                        <div class="info-vivienda">
-                            <p class="ciudad-vivienda">{{vivienda.ubicacion.ciudad}}</p>
-                            <p class="direccion-vivienda">{{vivienda.ubicacion.direccion}}</p>
-                            <p class="descripcion-vivienda">{{vivienda.descripcion}}</p>
-                            <p class="precio-vivienda">
-                                $ {{vivienda.precio}}
-                            </p>
-                            <div class="amenidades-vivienda">
+                                </div>
+                                <div class="carateristicas-item">
+                                    <label for="cantidadBanios">Ba&ntilde;os</label>
+                                    <div class="d-flex justify-content-end">
+                                        <input id="cantidadBanios" name="cantidadBanios" placeholder="0" type="number" max="10"
+                                            min="0">
+                                    </div>
+
+                                </div>
+                                <div class="carateristicas-item">
+                                    <label for="cantidadEstacionamientos">Estacionamientos</label>
+                                    <div class="d-flex justify-content-end">
+                                        <input id="cantidadEstacionamientos" name="cantidadEstacionamientos" placeholder="0" max="10"
+                                            type="number" min="0">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <p>amenidades</p>
+                            <div class="amenidades">
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="roofGarden" id="">
+                                    <label for="">Roof Garden</label>
+
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="asador" id="">
+                                    <label for="">Asador</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="salonUsosMultiples" id="">
+                                    <label for="">Sal&oacute;n de usos m&uacute;ltiples</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="sauna" id="">
+                                    <label for="">Sauna</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="gimnasio" id="">
+                                    <label for="">Gimnasio</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="spa" id="">
+                                    <label for="">Spa</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="areasDeportivas" id="">
+                                    <label for="">&Aacute;reas deportivas</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="areasJuegosInfantiles" id="">
+                                    <label for="">&Aacute;reas de juegos infantiles</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="bussinesCenter" id="">
+                                    <label for="">Bussines center</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="jardiner" id="">
+                                    <label for="">Jardiner</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="espacioCoworking" id="">
+                                    <label for="">Espacio de co-working</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
+                                <div class="amenidades-item">
+                                    <input type="checkbox" class="d-block" name="jacuzzi" id="">
+                                    <label for="">Jacuzzi</label>
+                                    <a><i class="fas fa-times fa-xs" style="color:#689cfc"></i></a>
+                                </div>
 
                             </div>
-                            <hr>
-                            <div class="contacto">
-                                <a class="whatsapp">
-                                    <i class="fab fa-whatsapp fa-xs"></i>
-                                </a>
-                                <a href="Vivienda?id={{vivienda._id}}" class="btn-contactar">
-                                    Contactar
-                                </a>
+                            <br>
+                            <div class="div-btn-filtros">
+                                <input type="button" value="Limpiar filtros" class="btn-limpiar-filtros">
+                                <input type="submit" value="Guardar búsqueda" class="btn-buscar-filtros">
                             </div>
-
-                        </div>
+                        </form>
                     </div>
-                    {% endfor %}
-                    {% else %}
-                    <p>{{ error }}</p>
-                    {% endif %}
+                    <div class="container-viviendas">
+                        {% if viviendas %}
 
+                        {% for vivienda in viviendas %}
+                        <div class="vivienda shadow">
+                            <div class="img-vivienda" data-imgSrc="../img/living-casa2.JPG">
+                                <a class="casa-nueva">Casa Nueva</a>
+                            </div>
+                            <div class="info-vivienda">
+                                <p class="ciudad-vivienda">{{vivienda.ubicacion.ciudad}}</p>
+                                <p class="direccion-vivienda">{{vivienda.ubicacion.direccion}}</p>
+                                <p class="descripcion-vivienda">{{vivienda.descripcion}}</p>
+                                <p class="precio-vivienda">
+                                    $ {{vivienda.precio}}
+                                </p>
+                                <div class="amenidades-vivienda">
+
+                                </div>
+                                <hr>
+                                <div class="contacto">
+                                    <a class="whatsapp">
+                                        <i class="fab fa-whatsapp fa-xs"></i>
+                                    </a>
+                                    <a href="Vivienda?id={{vivienda._id}}" class="btn-contactar">
+                                        Contactar
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p>{{ error }}</p>
+                        {% endif %}
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <script src="{{ url_for('static', filename='scripts/slider.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/vivienda.js') }}"></script>
-</div>
+    </div>
 </body>
 
 {% include 'footer.html' %}
 
 <script>
-    
+
 
 </script>
+
 </html>

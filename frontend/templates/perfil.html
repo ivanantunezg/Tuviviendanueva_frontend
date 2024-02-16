@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVN - Mi perfil</title>
+</head>
+{% include 'menu.html' %}
+
+<body>
+    <div class="p-5">
+        <div class="text-center shadow">
+            {% if datos_perfil %}
+            <p><b>Nombre: </b>{{datos_perfil.nombre}}</p>
+            <p><b>Apellido: </b>{{datos_perfil.apellido}}</p>
+            <p><b>Correo elenctr&oacute;nico: </b>{{datos_perfil.email}}</p>
+            <p><b>Tel&eacute;fono: </b>{{datos_perfil.telefono}}</p>
+            <p><b>N° Documento: </b>{{datos_perfil.numeroDocumento}}</p>
+            <p><b>Tipo usuario: </b>{{datos_perfil.tipoUsuario}}</p>
+            {% else %}
+            <p> Error al obtener datos de su perfil</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+{% include 'footer.html' %}
+
+</html>

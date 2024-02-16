@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    padding-top:15vh;
+    height: 100vh;
+}
+
+.content-login{
+    width: 26vw;
+}
+
+.img-logo{
+    padding-bottom: 2vh;
+    text-align: center;
+}
+.card-login{
+    padding: 2vh 2vh 2vh 2vh;
+}
+
+.div-input{
+    padding: 2vh 0 0 0;
+    line-height: 4vh;
+}
+
+.btn-login{
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    padding: 0.5vh 0 0.5vh 0;
+    font-size: 1.8vh;
+    width: 70%;
+    color: #fff;
+    background-color: #689cfc;
+    border: none;
+    outline-style: none;
+    border-radius: 10px;
+}
+
+.div-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.recuperar-contrasenia{
+    font-size: 1.4vh;
+}
+
+.registrarse{
+    line-height: 3vh;
+}

@@ -85,7 +85,7 @@ header{
     align-items: center;
 }
 
-.main a{
+.main a:not(.dropdown-item){
     margin-right: 25px;
     margin-left: 25px;
     color:#689cfc;
